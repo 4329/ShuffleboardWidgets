@@ -2,28 +2,30 @@
 
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.image.ImageView?>
 
 <Pane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.simplewidget.widget.OctagonWidget"
           fx:id="root"
           minWidth="384" minHeight="256">
-    <Circle fx:id="3" centerX="106" centerY="35" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="4" centerX="150" centerY="35" radius="20" stroke="#ff8800"></Circle>
+	<ImageView fx:id="background"></ImageView>
 
-    <Circle fx:id="2" centerX="50" centerY="65" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="1" centerX="30" centerY="105" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="5" centerX="206" centerY="65" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="6" centerX="226" centerY="105" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="3" centerX="126" centerY="35" radius="19" stroke="#ff8800"></Circle>
+    <Circle fx:id="4" centerX="170" centerY="35" radius="20" stroke="#ff8800"></Circle>
 
-    <Circle fx:id="0" centerX="30" centerY="160" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="11" centerX="50" centerY="200" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="8" centerX="206" centerY="200" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="7" centerX="226" centerY="160" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="2" centerX="70" centerY="65" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="1" centerX="50" centerY="105" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="5" centerX="226" centerY="65" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="6" centerX="246" centerY="105" radius="20" stroke="#ff8800"></Circle>
 
-    <Circle fx:id="10" centerX="106" centerY="224" radius="20" stroke="#ff8800"></Circle>
-    <Circle fx:id="9" centerX="150" centerY="224" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="0" centerX="50" centerY="160" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="11" centerX="70" centerY="200" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="8" centerX="226" centerY="200" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="7" centerX="246" centerY="160" radius="20" stroke="#ff8800"></Circle>
 
+    <Circle fx:id="10" centerX="126" centerY="224" radius="20" stroke="#ff8800"></Circle>
+    <Circle fx:id="9" centerX="170" centerY="224" radius="20" stroke="#ff8800"></Circle>
 
     <Circle fx:id="12" centerX="340" centerY="54" radius="20" stroke="#ff8800"></Circle>
     <Circle fx:id="13" centerX="340" centerY="108" radius="20" stroke="#ff8800"></Circle>
