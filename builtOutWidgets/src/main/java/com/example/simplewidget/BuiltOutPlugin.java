@@ -11,6 +11,7 @@ import com.example.simplewidget.data.type.BetterPIDControllerType;
 import com.example.simplewidget.data.type.OctagonType;
 
 import com.example.simplewidget.widget.BetterPIDControllerWidget;
+import com.example.simplewidget.widget.BetterTrapezoidControllerWidget;
 import com.example.simplewidget.widget.GyroWidget;
 import com.example.simplewidget.widget.LoadingBarringWidget;
 import com.example.simplewidget.widget.SometimesTextWidget;
@@ -43,7 +44,8 @@ public final class BuiltOutPlugin extends Plugin {
         WidgetType.forAnnotatedWidget(LoadingBarringWidget.class),
         WidgetType.forAnnotatedWidget(SometimesTextWidget.class),
         WidgetType.forAnnotatedWidget(BetterPIDControllerWidget.class),
-        WidgetType.forAnnotatedWidget(OctagonWidget.class)
+        WidgetType.forAnnotatedWidget(OctagonWidget.class),
+        WidgetType.forAnnotatedWidget(BetterTrapezoidControllerWidget.class)
     );
   }
 
@@ -51,7 +53,7 @@ public final class BuiltOutPlugin extends Plugin {
   public Map<DataType, ComponentType> getDefaultComponents() {
     return Map.of(
         GyroType.Instance, WidgetType.forAnnotatedWidget(GyroWidget.class),
-        BetterPIDControllerType.Instance, WidgetType.forAnnotatedWidget(BetterPIDControllerWidget.class),
+        BetterPIDControllerType.Instance, WidgetType.forAnnotatedWidget(BetterTrapezoidControllerWidget.class),
         OctagonType.Instance, WidgetType.forAnnotatedWidget(OctagonWidget.class)
     );
   }
