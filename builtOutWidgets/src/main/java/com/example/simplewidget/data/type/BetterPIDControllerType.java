@@ -21,7 +21,7 @@ public final class BetterPIDControllerType extends ComplexDataType<BetterPIDCont
 
   @Override
   public BetterPIDControllerData getDefaultValue() {
-    return new BetterPIDControllerData(0, 0, 0, 0, 0, 0, 0, 0);
+    return new BetterPIDControllerData(0, 0, 0, 0, 0, 0, 0, 0, 0);
   }
 
 }

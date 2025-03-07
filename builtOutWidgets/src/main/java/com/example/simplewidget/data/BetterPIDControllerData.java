@@ -13,6 +13,7 @@ public final class BetterPIDControllerData extends ComplexData<BetterPIDControll
 
   private final double p;
   private final double i;
+  private final double iZone;
   private final double d;
   private final double tol;
   private final double setpoint;
@@ -28,9 +29,10 @@ public final class BetterPIDControllerData extends ComplexData<BetterPIDControll
    * @param d        the derivative constant
    * @param setpoint the controller setpoint
    */
-  public BetterPIDControllerData(double p, double i, double d, double tol, double setpoint, double output, double speed, double accel) {
+  public BetterPIDControllerData(double p, double i, double iZone, double d, double tol, double setpoint, double output, double speed, double accel) {
     this.p = p;
     this.i = i;
+    this.iZone = iZone;
     this.d = d;
     this.tol = tol;
     this.setpoint = setpoint;
@@ -46,6 +48,7 @@ public final class BetterPIDControllerData extends ComplexData<BetterPIDControll
   public BetterPIDControllerData(Map<String, Object> map) {
     this((double) map.getOrDefault("p", 0.0),
         (double) map.getOrDefault("i", 0.0),
+        (double) map.getOrDefault("iZone", 0.0),
         (double) map.getOrDefault("d", 0.0),
         (double) map.getOrDefault("tol", 0.0),
         (double) map.getOrDefault("setpoint", 0.0),
@@ -60,6 +63,10 @@ public final class BetterPIDControllerData extends ComplexData<BetterPIDControll
 
   public double getI() {
     return i;
+  }
+
+  public double getIZone() {
+    return iZone;
   }
 
   public double getD() {
@@ -87,31 +94,35 @@ public final class BetterPIDControllerData extends ComplexData<BetterPIDControll
   }
 
   public BetterPIDControllerData withP(double p) {
-    return new BetterPIDControllerData(p, i, d, tol, setpoint, output, speed, accel);
+    return new BetterPIDControllerData(p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 
   public BetterPIDControllerData withI(double i) {
-    return new BetterPIDControllerData(p, i, d, tol, setpoint, output, speed, accel);
+    return new BetterPIDControllerData(p, i, iZone, d, tol, setpoint, output, speed, accel);
+  }
+
+  public BetterPIDControllerData withIZone(double iZone) {
+    return new BetterPIDControllerData(p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 
   public BetterPIDControllerData withD(double d) {
-    return new BetterPIDControllerData(p, i, d, tol, setpoint, output, speed, accel);
+    return new BetterPIDControllerData(p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 
   public BetterPIDControllerData withTol(double tol) {
-    return new BetterPIDControllerData(p, i, d, tol, setpoint, output, speed, accel);
+    return new BetterPIDControllerData(p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 
   public BetterPIDControllerData withSetpoint(double setpoint) {
-    return new BetterPIDControllerData(p, i, d, tol, setpoint, output, speed, accel);
+    return new BetterPIDControllerData(p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 
   public BetterPIDControllerData withSpeed(double speed) {
-    return new BetterPIDControllerData(p, i, d, tol, setpoint, output, speed, accel);
+    return new BetterPIDControllerData(p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 
   public BetterPIDControllerData withAccel(double accel) {
-    return new BetterPIDControllerData(p, i, d, tol, setpoint, output, speed, accel);
+    return new BetterPIDControllerData(p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 
   @Override
@@ -119,6 +130,7 @@ public final class BetterPIDControllerData extends ComplexData<BetterPIDControll
     return ImmutableMap.<String, Object>builder()
         .put("p", p)
         .put("i", i)
+        .put("iZone", iZone)
         .put("d", d)
         .put("tol", tol)
         .put("setpoint", setpoint)
@@ -139,6 +151,7 @@ public final class BetterPIDControllerData extends ComplexData<BetterPIDControll
     BetterPIDControllerData that = (BetterPIDControllerData) obj;
     return this.p == that.p
         && this.i == that.i
+        && this.iZone == that.iZone
         && this.d == that.d
         && this.tol == that.tol
         && this.setpoint == that.setpoint
@@ -149,17 +162,17 @@ public final class BetterPIDControllerData extends ComplexData<BetterPIDControll
 
   @Override
   public int hashCode() {
-    return Objects.hash(p, i, d, tol, setpoint, output, speed, accel);
+    return Objects.hash(p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 
   @Override
   public String toString() {
-    return String.format("BetterPIDControllerData(p=%s, i=%s, d=%s, tol=%s, setpoint=%s, output=%s, speed=%s, accel=%s)",
-        p, i, d, tol, setpoint, output, speed, accel);
+    return String.format("BetterPIDControllerData(p=%s, i=%s, iZone=%s, d=%s, tol=%s, setpoint=%s, output=%s, speed=%s, accel=%s)",
+        p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 
   @Override
   public String toHumanReadableString() {
-    return String.format("p=%.3f, i=%.3f, d=%.3f, tol=%.3f, setpoint=%.3f, output=%.3f, speed=%.3f, accel=%.3f", p, i, d, tol, setpoint, output, speed, accel);
+    return String.format("p=%.3f, i=%.3f, iZone=%.3f, d=%.3f, tol=%.3f, setpoint=%.3f, output=%.3f, speed=%.3f, accel=%.3f", p, i, iZone, d, tol, setpoint, output, speed, accel);
   }
 }

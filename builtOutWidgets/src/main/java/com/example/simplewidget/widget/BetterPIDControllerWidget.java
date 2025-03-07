@@ -27,6 +27,8 @@ public class BetterPIDControllerWidget extends SimpleAnnotatedWidget<BetterPIDCo
   @FXML
   private NumberField iField;
   @FXML
+  private NumberField iZoneField;
+  @FXML
   private NumberField dField;
   @FXML 
   private NumberField tolField;
@@ -42,6 +44,7 @@ public class BetterPIDControllerWidget extends SimpleAnnotatedWidget<BetterPIDCo
     dataProperty().addListener((__, old, newData) -> {
       pField.setNumber(newData.getP());
       iField.setNumber(newData.getI());
+      iZoneField.setNumber(newData.getIZone());
       dField.setNumber(newData.getD());
       tolField.setNumber(newData.getTol());
       setpointField.setNumber(newData.getSetpoint());
@@ -50,6 +53,7 @@ public class BetterPIDControllerWidget extends SimpleAnnotatedWidget<BetterPIDCo
 
     actOnFocusLost(pField);
     actOnFocusLost(iField);
+    actOnFocusLost(iZoneField);
     actOnFocusLost(dField);
     actOnFocusLost(tolField);
     actOnFocusLost(setpointField);
@@ -77,6 +81,11 @@ public class BetterPIDControllerWidget extends SimpleAnnotatedWidget<BetterPIDCo
   @FXML
   private void setI() {
     setData(getData().withI(iField.getNumber()));
+  }
+
+  @FXML
+  private void setIZone() {
+    setData(getData().withIZone(iZoneField.getNumber()));
   }
 
   @FXML
