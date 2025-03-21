@@ -42,13 +42,13 @@ public class BetterPIDControllerWidget extends SimpleAnnotatedWidget<BetterPIDCo
   private void initialize() {
     root.setStyle("-fx-font-size: 10pt;");
     dataProperty().addListener((__, old, newData) -> {
-      pField.setNumber(newData.getP());
-      iField.setNumber(newData.getI());
-      iZoneField.setNumber(newData.getIZone());
-      dField.setNumber(newData.getD());
-      tolField.setNumber(newData.getTol());
-      setpointField.setNumber(newData.getSetpoint());
-      outputField.setNumber(newData.getOutput());
+	  if (old.getP() != newData.getP()) pField.setNumber(newData.getP());
+      if (old.getI() != newData.getI()) iField.setNumber(newData.getI());
+      if (old.getIZone() != newData.getIZone()) iZoneField.setNumber(newData.getIZone());
+      if (old.getD() != newData.getD()) dField.setNumber(newData.getD());
+      if (old.getTol() != newData.getTol()) tolField.setNumber(newData.getTol());
+      if (old.getSetpoint() != newData.getSetpoint()) setpointField.setNumber(newData.getSetpoint());
+      if (old.getOutput() != newData.getOutput()) outputField.setNumber(newData.getOutput());
     });
 
     actOnFocusLost(pField);
